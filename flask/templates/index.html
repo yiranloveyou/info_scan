@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ProSearch</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('{{url_for("static",filename="backphoto.png")}}');
+      background-size: auto;
+      background-position: bottom;
+    }
+    
+    .navbar {
+      background-color: #333;
+      padding: 10px;
+    }
+    
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2F4F4F;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #FFA500;
+    }
+    
+    .footer {
+      background-color: #333;
+      padding: 0.5px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    
+    .footer-text {
+      color: #fff;
+    }
+
+    h4 {
+      color: #FFA500;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a class="navbar-brand" href="#">ProSearch</a>
+  </div>
+  
+  <h4>Welcome to ProSearch</h4>
+  
+  <div>
+    <a class="button" href="{{url_for('Whois')}}">Whois查询</a>
+    <a class="button" href="{{url_for('SubDomain')}}">子域名查询</a>
+    <a class="button" href="{{url_for('PortscanSearch')}}">端口扫描</a>
+    <a class="button" href="#">子目录扫描</a>
+  </div>
+  
+  <div class="footer">
+    <p class="footer-text">SecTool V1.0</p>
+  </div>
+  
+  <script>
+    // 如果需要在页面中添加其他交互逻辑，可以在这里添加 JavaScript 代码
+  </script>
+</body>
+</html>

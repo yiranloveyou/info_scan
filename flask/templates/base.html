@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>{% block title%}{%endblock%}</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      /* background-image: url('{{url_for("static",filename="backphoto.png")}}');
+      background-color: rgb(15, 56, 118);
+      background-size: auto;
+      background-position: bottom; */
+    }
+    
+    .navbar {
+      background-color: #333;
+      padding: 10px;
+    }
+    
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    .footer {
+      background-color: #333;
+      padding: 0.5px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    
+    .footer-text {
+      color: #fff;
+    }
+  </style>
+  {%block style1%} {%endblock%}
+</head>
+<body>
+  <div class="navbar">
+    <a class="navbar-brand" href="#">ProSearch</a>
+  </div>
+  
+  <div class="footer">
+    <p class="footer-text">SecTool V1.0</p>
+  </div>
+  <script>
+  </script>
+  <script src="{{url_for("static",filename="particles-config.json")}}"></script>
+  <script src="{{url_for("static",filename="app.js")}}"></script>
+  
+  {%block js%}{%endblock%}
+  {%block body%}{%endblock%}
+</body>
+</html>
