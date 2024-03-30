@@ -163,5 +163,32 @@ def Portscan():
 
     return render_template("Portscan.html",port=open_ports1,ip=ip,counttime=counttime)
 
+@app.route("/SurSearch")
+def SurSearch():
+    return render_template("SurSearch.html")
+@app.route("/Sur",methods=['POST'])
+def Sur():
+    url = request.form.get('url')
+    port = int(request.form.get('port') or 80)
+    start_time=time.time()
+    try:
+        # 构造目标URL，如果指定端口不是80，则需要添加端口号
+        if port != 80:
+            url = f"{url}:{port}"
+
+        # 发送GET请求
+        response = requests.get(url, timeout=5)
+
+        # 检查响应状态码
+        if response.status_code == 200 or 403:
+            rs=f"[+] 主机 {url} 存活"
+        else:
+            rs=f"[-] 主机 {url} 不存活（状态码：{response.status_code}"
+    except requests.RequestException as e:
+        rs=f"[-] 请求出错: {e}"
+    end_time=time.time()
+    counttime=end_time-start_time
+    return render_template("Sur.html",url=url,counttime=counttime,rs=rs,port=port)
+
 if __name__ =="__main__":
     app.run(debug=True,host="0.0.0.0",port=9000)
